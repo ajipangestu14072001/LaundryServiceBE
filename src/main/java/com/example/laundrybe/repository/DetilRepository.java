@@ -8,6 +8,6 @@ import java.util.List;
 
 @Repository
 public interface DetilRepository extends JpaRepository<Detil, Long> {
-    List<Detil> findByIdTransContaining(String idTrans);
+    List<Detil> findByidDetilContaining(String idDetil);
 
 }

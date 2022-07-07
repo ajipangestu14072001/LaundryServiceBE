@@ -14,9 +14,9 @@ public class Detil {
     @Column(name = "id_detil")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDetil;
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name="id_transaksi", nullable = false)
-    private Transaksi idTrans;
+//    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+//    @JoinColumn(name="id_transaksi", nullable = false)
+//    private Transaksi idTrans;
     @Column(name = "jumlah")
     private Integer jumlah;
     @Column(name = "harga")

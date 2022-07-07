@@ -32,7 +32,6 @@ public class DetilController {
         try {
             Detil member = new Detil();
             member.setHarga(customer.getHarga());
-            member.setIdTrans(customer.getIdTrans());
             member.setJumlah(customer.getJumlah());
             detilRepository.save(member);
             List<Object> objects = new ArrayList<>();
@@ -51,7 +50,7 @@ public class DetilController {
         try {
             List<Detil> members;
             if (StringUtils.hasText(idTrans)) {
-                members = detilRepository.findByIdTransContaining(idTrans);
+                members = detilRepository.findByidDetilContaining(idTrans);
             } else {
                 members = detilRepository.findAll();
             }

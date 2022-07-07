@@ -10,6 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface TransaksiRepository extends JpaRepository<Transaksi, Long> {
+public interface TransaksiRepository extends JpaRepository<Transaksi, String> {
     List<Transaksi> findByIdTransaksiContaining(String idTransaksi);
 }

@@ -1,7 +1,5 @@
 package com.example.laundrybe.controllers;
 
-import com.example.laundrybe.models.Karyawan;
-import com.example.laundrybe.models.Konsumen;
 import com.example.laundrybe.models.Transaksi;
 import com.example.laundrybe.payload.ResponseHandler;
 import com.example.laundrybe.repository.TransaksiRepository;
@@ -72,5 +70,15 @@ public class TransaksiController {
 
         }
 
+    }
+    @DeleteMapping("/laundry/{idTransaksi}")
+    public ResponseEntity<HttpStatus> delete(
+            @PathVariable("idTransaksi") String idTransaksi) {
+        try {
+            transaksiRepository.deleteById(idTransaksi);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
