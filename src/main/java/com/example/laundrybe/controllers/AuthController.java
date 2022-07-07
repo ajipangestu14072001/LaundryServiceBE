@@ -190,7 +190,8 @@ public class AuthController {
                     userDetails.getUsername(),
                     userDetails.getEmail(),
                     roles,
-                    userDetails.getNama()
+                    userDetails.getNama(),
+                    userDetails.getTelepon()
             );
             List<Object> objects = new ArrayList<>();
             objects.add(jwtResponse);
@@ -223,8 +224,7 @@ public class AuthController {
                     userDetails.getUsername(),
                     userDetails.getEmail(),
                     roles,
-                    userDetails.getNama()
-            );
+                    userDetails.getNama());
             List<Object> objects = new ArrayList<>();
             objects.add(jwtResponse);
             return responseHandler.generateResponse("OK", HttpStatus.OK,objects);

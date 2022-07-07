@@ -30,7 +30,7 @@ public class LayananController {
             Layanan member = new Layanan();
             member.setHarga(customer.getHarga());
             member.setNamaLayanan(customer.getNamaLayanan());
-            member.setIdDetil(customer.getIdDetil());
+            member.setKategori(customer.getKategori());
             layananRepository.save(member);
             List<Object> objects = new ArrayList<>();
             objects.add(member);
@@ -63,4 +63,17 @@ public class LayananController {
         }
 
     }
+    @GetMapping(value = "/laundry/kategori")
+    public ResponseEntity<Object> findKategori(@RequestParam(name = "kategori",
+            required = false,
+            defaultValue = "") String kategori) {
+        try {
+            List<Layanan> data;
+            data = layananRepository.findByKategoriContaining(kategori);
+            return responseHandler.generateResponse("OK", HttpStatus.OK, data);
+        } catch (Exception e) {
+            return responseHandler.generateResponse(e.getMessage(), HttpStatus.MULTI_STATUS, "[]");
+        }
+    }
+
 }
